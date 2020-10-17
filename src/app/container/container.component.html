@@ -1,0 +1,52 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
+               (closed)="events.push('close!')">
+    <mat-sidenav-container>
+      <mat-sidenav-content>
+        <div class="aside-logo">
+          <div class="wrap-logo">
+            <img src="../../assets/images/img-01.png">
+          </div>
+        </div>
+        <div class="aside-nav">
+          <div>
+            <div>
+              <p class="menu">Menú</p>
+              <ul>
+                <a [routerLink]="['home']" routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact:true }" class="text-gray">
+                  <div style="display: flex">
+                    <i class="material-icons">home</i>
+                    <div style="margin-left: 10px">Inicio</div>
+                </div>
+                </a>
+              </ul>
+              <ul>
+                <a [routerLink]="['catalogo']" routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact:true }" class="text-gray">
+                  <div style="display: flex">
+                    <i class="material-icons">list</i>
+                    <div style="margin-left: 10px">Catalogo</div>
+                </div>
+                </a>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="sidenav.toggle()">menu</mat-icon>
+        <span style="margin-left: 30px;">  Cerveza cerro viejo</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <div class="wrap-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

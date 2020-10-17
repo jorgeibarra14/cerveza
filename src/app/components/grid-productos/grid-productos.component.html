@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row" class="page-title">
+    <h2>Catalogo de productos</h2>
+  </div>
+<kendo-grid [data]="gridData" [height]="410" [filterable]="true" [groupable]="true">
+  <ng-template kendoGridToolbarTemplate>
+    <button kendoGridPDFCommand icon="file-pdf">Exportar a PDF</button>
+    <button style="float: right;" class="k-button" (click)="agregarProducto()" icon="plus">Agregar Producto</button>
+</ng-template>
+  <kendo-grid-column field="Nombre" title="Cerveza" width="250">
+  </kendo-grid-column>
+  <kendo-grid-column field="Precio" title="Precio" width="250">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      {{dataItem.Precio | currency }}
+    </ng-template>
+  </kendo-grid-column>
+  <kendo-grid-column field="Cantidad" title="Cantidad" width="250">
+  </kendo-grid-column>
+  <kendo-grid-pdf fileName="Products.pdf" [allPages]="true" paperSize="A4" [repeatHeaders]="true" [landscape]="true">
+    <kendo-grid-pdf-margin top="2cm" left="1cm" right="1cm" bottom="2cm"></kendo-grid-pdf-margin>
+    <ng-template kendoGridPDFTemplate let-pageNum="pageNum" let-totalPages="totalPages">
+     <div class="page-template">
+        <div class="header">
+          <div style="float: right">Página {{ pageNum }} de {{ totalPages }}</div>
+        </div>
+        <div class="footer">
+          Página {{ pageNum }} de {{ totalPages }}
+        </div>
+      </div>
+    </ng-template>
+</kendo-grid-pdf>
+</kendo-grid>
+<app-add-product
+[opened]="abrirModal"
+(closeWindow)="abrirModal = false"
+></app-add-product>
+</div>

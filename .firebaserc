@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "cerro-viejo-crud": {
+      "hosting": {
+        "cerro-viejo-crud": [
+          "cerro-viejo-crud"
+        ]
+      }
+    }
+  }
+}

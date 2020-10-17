@@ -1,0 +1,25 @@
+<kendo-window title="Agregar producto" *ngIf="opened" (close)="close()" [minWidth]="250" [width]="450">
+
+<form class="k-form">
+    <fieldset>
+        <label class="k-form-field">
+            <span>Nombre</span>
+            <input class="k-textbox" placeholder="Nombre" />
+        </label>
+        <label class="k-form-field">
+            <span>Cantidad</span>
+            <input class="k-textbox" type="number" placeholder="Cantidad" />
+        </label>
+        <label class="k-form-field">
+          <span>Precio</span>
+          <input class="k-textbox" type="number" placeholder="Precio" />
+      </label>
+    </fieldset>
+
+    <div class="text-right">
+        <button type="button" class="k-button" (click)="close()">Cancelar</button>
+        <button type="button" class="k-button k-primary" (click)="submit()">Guardar</button>
+    </div>
+</form>
+
+</kendo-window>

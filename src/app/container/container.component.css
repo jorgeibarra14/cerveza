@@ -1,0 +1,101 @@
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+md-sidenav,
+md-sidenav.md-locked-open,
+md-sidenav.md-closed.md-locked-open-add-active {
+  min-width: 200px !important;
+  width: 85vw !important;
+  max-width: 400px !important;
+}
+
+.aside-logo {
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+.wrap-logo {
+  padding: 10px;
+}
+
+.wrap-logo img {
+  width: 132px;
+  height: 74px;
+}
+
+.aside-user-photo {
+  width: 100%;
+  height: auto;
+}
+
+.wrap-user-photo {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+.menu {
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+}
+
+.content {
+  width: calc(100% - 300px);
+  min-height: calc(100vh - 60px);
+  margin-top: 60px;
+  float: right;
+  transition: all 0.3s;
+  position: relative;
+  min-width: 800px;
+}
+
+@media (max-width: 1440px) {
+  .content {
+    width: calc(100% - 250px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .content {
+    width: 100%;
+  }
+}
+
+.wrap-content {
+  padding: 10px;
+}
+
+/* //////////  ESTILOS APLICADOS AL ESCONDER EL MENU /////////*/
+@media only screen and (min-width: 1024px) {
+  div.hide-menu ho1a-header {
+    width: 100%;
+  }
+
+  div.hide-menu ho1a-side-nav {
+    left: -1000px;
+  }
+
+  div.hide-menu .content {
+    width: 100%;
+  }
+
+  div.hide-menu .logo-header {
+    margin-left: 0px;
+    opacity: 1;
+  }
+}
+
+.text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.aside-nav ul {
+  margin: 5%;
+  padding-left: 3%;
+}
