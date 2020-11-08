@@ -5,7 +5,7 @@
       <mat-sidenav-content>
         <div class="aside-logo">
           <div class="wrap-logo">
-            <img src="../../assets/images/img-01.png">
+            <img src="../../assets/images/logo.png">
           </div>
         </div>
         <div class="aside-nav">
@@ -30,6 +30,15 @@
                 </div>
                 </a>
               </ul>
+              <ul>
+                <a [routerLink]="['pos']" routerLinkActive="active"
+                   [routerLinkActiveOptions]="{ exact:true }" class="text-gray">
+                  <div style="display: flex">
+                    <i class="material-icons">money</i>
+                    <div style="margin-left: 10px">Punto de venta</div>
+                  </div>
+                </a>
+              </ul>
             </div>
           </div>
         </div>
@@ -41,10 +50,15 @@
     <mat-toolbar color="primary">
       <mat-toolbar-row>
         <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="sidenav.toggle()">menu</mat-icon>
-        <span style="margin-left: 30px;">  Cerveza cerro viejo</span>
+        <div class="col-11">
+          <span style="margin-left: 30px;">  Cerveza cerro viejo</span>
+        </div>
+        <div class="col-1">
+          <span (click)="singOut()" style="text-decoration: underline; cursor: pointer; font-size: small">Cerrar Sesión</span>
+        </div>
       </mat-toolbar-row>
     </mat-toolbar>
-    <div class="wrap-content">
+    <div class="container-fluid">
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>

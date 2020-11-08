@@ -19,9 +19,14 @@ import { Routes, Route, RouterModule } from '@Angular/router';
 import { WindowModule } from '@progress/kendo-angular-dialog';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 import { app_routing } from './app.routes';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { PosComponent } from './components/pos/pos.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -35,7 +40,9 @@ const routes: Routes = [
     AppComponent,
     GridProductosComponent,
     ContainerComponent,
-    AddProductComponent
+    AddProductComponent,
+    EditProductComponent,
+    PosComponent
    ],
   imports: [
     BrowserModule,
@@ -51,7 +58,9 @@ const routes: Routes = [
     app_routing,
     PDFModule,
     ExcelModule,
-    WindowModule
+    WindowModule,
+    FormsModule,
+    HttpClientModule
     // RouterModule.forRoot(routes)
   ],
   providers: [],

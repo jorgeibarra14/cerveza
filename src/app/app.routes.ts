@@ -4,11 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { ContainerComponent } from './container/container.component';
 import { GridProductosComponent } from './components/grid-productos/grid-productos.component';
 import { LoginComponent } from './components/login/login.component';
+import {PosComponent} from './components/pos/pos.component';
 
 const app_routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'catalogo', component: GridProductosComponent },
+  { path: 'pos', component: PosComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 

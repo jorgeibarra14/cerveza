@@ -1,7 +1,7 @@
 import { GridProductosComponent } from './../components/grid-productos/grid-productos.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { ContainerComponent } from './container.component';
@@ -15,7 +15,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 
 @NgModule({
-  declarations: [ContainerComponent],
+  declarations: [],
   imports: [
     CommonModule,
     BrowserAnimationsModule,
@@ -26,6 +26,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     MatToolbarModule,
     MatIconModule,
     RouterModule,
+    ReactiveFormsModule,
     app_routing
 
   ]

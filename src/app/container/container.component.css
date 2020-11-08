@@ -25,7 +25,7 @@ md-sidenav.md-closed.md-locked-open-add-active {
 
 .wrap-logo img {
   width: 132px;
-  height: 74px;
+  height: 132px;
 }
 
 .aside-user-photo {
@@ -98,4 +98,7 @@ md-sidenav.md-closed.md-locked-open-add-active {
 .aside-nav ul {
   margin: 5%;
   padding-left: 3%;
+}
+.mat-toolbar .mat-primary .mat-toolbar-multiple-rows {
+  background-color: red !important;
 }

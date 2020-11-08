@@ -1,6 +1,9 @@
-import { Injectable } from '@angular/core';
-import { AngularFireAuth } from "@angular/fire/auth";
-import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {AngularFireAuth} from '@angular/fire/auth';
+import {Observable} from 'rxjs';
+
+import Swal from 'sweetalert2';
+import swal from "sweetalert2";
 
 
 @Injectable({
@@ -8,42 +11,33 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
   userData: Observable<firebase.User>;
+  isLoggedIn = false;
+  constructor(public fireAuth: AngularFireAuth) {
+    this.userData = fireAuth.authState;
+    console.log(this.userData);
+  }
+  async signIn(email: string, password: string) {
+    await this.fireAuth.signInWithEmailAndPassword(email, password)
+      .then(res => {
+        this.isLoggedIn = true;
+        localStorage.setItem('user', JSON.stringify(res.user));
+      }).catch(error => {
+        Swal.fire('Error al iniciar sesión', 'Por favor, revise sus credenciales', 'error')
+      })
+  }
 
-constructor(private fireAuth: AngularFireAuth) {
-  this.userData = fireAuth.authState;
-  console.log(this.userData);
-}
+  async signUp(email: string, password: string) {
+    await this.fireAuth.createUserWithEmailAndPassword(email, password)
+      .then(res => {
+        this.isLoggedIn = true;
+        localStorage.setItem('user', JSON.stringify(res.user));
+      });
+  }
 
-/* Sign up */
-SignUp(email: string, password: string) {
-  this.fireAuth
-    .createUserWithEmailAndPassword(email, password)
-    .then(res => {
-      console.log('Successfully signed up!', res);
-    })
-    .catch(error => {
-      console.log('Something is wrong:', error.message);
-    });
-}
-
-/* Sign in */
-SignIn(email: string, password: string) {
-  debugger
-  this.fireAuth
-    .signInWithEmailAndPassword(email, password)
-    .then(res => {
-      debugger
-      console.log('Successfully signed in!');
-    })
-    .catch(err => {
-      console.log('Something is wrong:',err.message);
-    });
-}
-
-/* Sign out */
-SignOut() {
-  this.fireAuth
-    .signOut();
-}
+  /* Sign out */
+  logOut() {
+    this.fireAuth.signOut();
+    localStorage.removeItem('user');
+  }
 
 }

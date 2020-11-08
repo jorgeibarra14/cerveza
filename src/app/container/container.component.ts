@@ -1,5 +1,6 @@
-import { Component, OnInit, NgZone  } from '@angular/core';
+import {Component, OnInit, NgZone, Output, EventEmitter} from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-container',
@@ -12,6 +13,7 @@ export class ContainerComponent implements OnInit {
   events: string[] = [];
   opened: boolean;
   ruta: string;
+  @Output() cerrarSesion = new EventEmitter();
   constructor(private router: Router,  private ngZone: NgZone) {
    }
 
@@ -21,5 +23,9 @@ export class ContainerComponent implements OnInit {
 
   signIn() {
 
+  }
+
+  singOut() {
+    this.cerrarSesion.emit();
   }
 }
